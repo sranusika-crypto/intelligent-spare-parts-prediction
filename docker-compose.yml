@@ -1,0 +1,16 @@
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: sparepartsroot
+      MYSQL_DATABASE: spareparts
+    ports:
+      - "3307:3306"
